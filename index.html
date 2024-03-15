@@ -17,7 +17,9 @@
 
     <div class="container">
         <img id="gif" src="./assets/images/open-bind-box3.gif" alt="GIF">
-        <img id="image" alt="Popup Image">
+        <a id="image-link" href="" target="_blank">
+          <img id="image" src="" alt="Popup Image">
+        </a>
       </div>
 
     <!-- <div class="pop">
@@ -53,31 +55,41 @@
 
       <script>
          window.onload = function() {
-            var gif = document.getElementById('gif');
-            var image = document.getElementById('image');
-            var footerText = document.querySelector('.footer-text');
-            var imageSources = [
-            './assets/images/teenpattiyes.png',
-            './assets/images/rummyyes.png',
-            './assets/images/teenpattivip.png',
-            './assets/images/rummyvip.png',
-            './assets/images/svip3patti.png',
-            './assets/images/vip3patti.png',
-            './assets/images/rummytry.png'
-            ];
+    var gif = document.getElementById('gif');
+    var imageLink = document.getElementById('image-link');
+    var image = document.getElementById('image');
+    var footerText = document.querySelector('.footer-text');
+    // var confettiVideo = document.getElementById('confetti-video');
 
-            gif.style.display = 'block';
+    // Array of image URLs and corresponding links
+    var images = [
+      { url: './assets/images/teenpattiyes.png', link: 'https://ossmm02.ersfdokm.com/TeenpattiYes-apk/TeenpattiYes-131536-channel-68686868.apk' },
+      { url: './assets/images/rummyyes.png', link: 'https://ossmm02.ersfdokm.com/RummyYesIPA/RummyYes-132920-channel-68686868.apk' },
+      { url: './assets/images/teenpattivip.png', link: 'https://ossyd06.ersfdokm.com/teenpattivipAPK/teenpatti_vip-133813-channel-68686868.apk' },
+      { url: './assets/images/rummyvip.png', link: 'https://ossyd06.ersfdokm.com/RummyVIPAPK/RummyVIP-134200-channel-68686868.apk' },
+      { url: './assets/images/svip3patti.png', link: 'https://ossyd01.ersfdokm.com/svip3pattiagAPK/india_SVIP3Patti_2-channel-68686868.apk' },
+      { url: './assets/images/vip3patti.png', link: 'https://ossmm05.ersfdokm.com/vip3pattiAPK/vip3patti68686868.apk' },
+      { url: './assets/images/rummytry.png', link: 'https://ossyd06.downwl.com/Rummytry/RummyTry-140026-channel-68686868.apk' }
+    ];
 
-            setTimeout(function() {
-            gif.style.display = 'none';
-            setTimeout(function() {
-                var randomIndex = Math.floor(Math.random() * imageSources.length);
-                image.src = imageSources[randomIndex];
-                image.style.display = 'block';
-                footerText.style.display = 'block';
-            }, 500); // Delay for showing the second image (change as needed)
-            }, 12000); // Delay for hiding the first image (change as needed)
-        };
+    gif.style.display = 'block';
+
+    setTimeout(function() {
+      gif.style.display = 'none';
+
+      // Randomly select an image URL and link
+      var randomIndex = Math.floor(Math.random() * images.length);
+      var randomImage = images[randomIndex];
+      image.src = randomImage.url;
+      imageLink.href = randomImage.link;
+
+      setTimeout(function() {
+        image.style.display = 'block';
+        footerText.style.display = 'block';
+        confettiVideo.style.display = 'block';
+      }, 500); // Delay for showing the image (change as needed)
+    }, 15000); // Delay for hiding the GIF (change as needed)
+  };
       </script>
     
     <script>

@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
         zip.file("index.html", document.documentElement.outerHTML);
         zip.file("./assets/css/style.css", "/* Your CSS styles */");
         zip.file("./js/script.js", "/* Your JavaScript code */");
-        zip.file("./js/jianrong.js", "/* Your JavaScript code */");
         // Add images
         var imgFolder = zip.folder("assets/images");
         imgFolder.file("image1.jpg", getBase64Image("image1.jpg"));
@@ -22,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Create a download link
             var link = document.createElement("a");
             link.href = URL.createObjectURL(content);
-            link.download = "my_website.zip";
+            link.download = "appsvip.zip";
             link.click();
         });
     }
