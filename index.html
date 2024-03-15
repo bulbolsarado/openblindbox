@@ -22,12 +22,12 @@
         </a>
       </div>
 
-    <!-- <div class="pop">
-        <a class="godownload" href="#downloadall">
-            <img class="popup-img" src="./assets/images/open-bind-box2.gif" alt="popup image">
-        </a>
-        <div class="close"></div>
-    </div> -->
+      <video id="confetti-video" autoplay loop muted>
+        <source src="./assets/video/confetti.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <div id="video-container"></div>
 
     <div class="mainbody">
         <div class="">
@@ -37,29 +37,14 @@
 
     <script src="./assets/js/script.js"></script>
 
-    <!-- <script>
-        window.onload = function() {
-          var gif = document.getElementById('gif');
-          var image = document.getElementById('image');
-      
-          gif.style.display = 'block';
-      
-          setTimeout(function() {
-            gif.style.display = 'none';
-            setTimeout(function() {
-              image.style.display = 'block';
-            }, 500); // Delay between hiding GIF and showing image
-          }, 15000); // Change to 5000 for 5 seconds
-        };
-      </script> -->
-
       <script>
          window.onload = function() {
     var gif = document.getElementById('gif');
     var imageLink = document.getElementById('image-link');
     var image = document.getElementById('image');
     var footerText = document.querySelector('.footer-text');
-    // var confettiVideo = document.getElementById('confetti-video');
+    var videoContainer = document.getElementById('video-container');
+    var confettiVideo = document.getElementById('confetti-video');
 
     // Array of image URLs and corresponding links
     var images = [
@@ -86,6 +71,7 @@
       setTimeout(function() {
         image.style.display = 'block';
         footerText.style.display = 'block';
+        videoContainer.style.display = 'block';
         confettiVideo.style.display = 'block';
       }, 500); // Delay for showing the image (change as needed)
     }, 15000); // Delay for hiding the GIF (change as needed)
