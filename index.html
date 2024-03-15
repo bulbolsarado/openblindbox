@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script type="text/javascript" src="./js/jianrong.js"></script>
@@ -11,9 +11,7 @@
 </head>
 <body>
 
-    <div class="footer-text">
-        <p>Open blind box again by sharing to friends or <a id="downloadButton" href="#">copy link</a>.</p>
-      </div>
+    
 
     <div class="container">
         <div id="gif-container">
@@ -22,6 +20,10 @@
         <a id="image-link" href="" target="_blank">
           <img id="image" src="" alt="Popup Image">
         </a>
+      </div>
+
+      <div class="footer-text">
+        <p>Open blind box again by sharing to friends or <a id="copy-link" href="#">copy link</a>.</p>
       </div>
 
       <video id="confetti-video" autoplay loop muted>
@@ -42,13 +44,14 @@
       <script>
          window.onload = function() {
           var gif = document.getElementById('gif');
-    var gifContainer = document.getElementById('gif-container');
-    var imageLink = document.getElementById('image-link');
-    var image = document.getElementById('image');
-    var footerText = document.querySelector('.footer-text');
-    var videoContainer = document.getElementById('video-container');
-    var confettiVideo = document.getElementById('confetti-video');
-    var container = document.querySelector('.container');
+          var gifContainer = document.getElementById('gif-container');
+          var imageLink = document.getElementById('image-link');
+          var image = document.getElementById('image');
+          var footerText = document.querySelector('.footer-text');
+          var videoContainer = document.getElementById('video-container');
+          var confettiVideo = document.getElementById('confetti-video');
+          var container = document.querySelector('.container');
+          var copyLinkButton = document.getElementById('copy-link');
 
     // Array of image URLs and corresponding links
     var images = [
@@ -78,7 +81,14 @@
         confettiVideo.style.display = 'block';
         container.style.backgroundColor = 'rgba(0, 0, 0, 0)'; 
       }, 500); // Delay for showing the image (change as needed)
-    }, 15000); // Delay for hiding the GIF (change as needed)
+    }, 15000); // Delay for hiding the GIF (change as needed).
+
+    // Function to copy the link when "Copy link" is clicked
+    copyLinkButton.addEventListener('click', function() {
+      var linkToCopy = window.location.href; // Get the current URL
+      navigator.clipboard.writeText(linkToCopy); // Copy the URL to clipboard
+      alert('Link copied to clipboard: ' + linkToCopy); // Show an alert message
+    });
   };
       </script>
     
