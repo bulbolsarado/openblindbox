@@ -16,7 +16,9 @@
       </div>
 
     <div class="container">
-        <img id="gif" src="./assets/images/open-bind-box3.gif" alt="GIF">
+        <div id="gif-container">
+          <img id="gif" src="./assets/images/open-bind-box3.gif" alt="GIF">
+        </div>
         <a id="image-link" href="" target="_blank">
           <img id="image" src="" alt="Popup Image">
         </a>
@@ -39,12 +41,14 @@
 
       <script>
          window.onload = function() {
-    var gif = document.getElementById('gif');
+          var gif = document.getElementById('gif');
+    var gifContainer = document.getElementById('gif-container');
     var imageLink = document.getElementById('image-link');
     var image = document.getElementById('image');
     var footerText = document.querySelector('.footer-text');
     var videoContainer = document.getElementById('video-container');
     var confettiVideo = document.getElementById('confetti-video');
+    var container = document.querySelector('.container');
 
     // Array of image URLs and corresponding links
     var images = [
@@ -58,9 +62,8 @@
     ];
 
     gif.style.display = 'block';
-
     setTimeout(function() {
-      gif.style.display = 'none';
+      gifContainer.style.display = 'none';
 
       // Randomly select an image URL and link
       var randomIndex = Math.floor(Math.random() * images.length);
@@ -73,6 +76,7 @@
         footerText.style.display = 'block';
         videoContainer.style.display = 'block';
         confettiVideo.style.display = 'block';
+        container.style.backgroundColor = 'rgba(0, 0, 0, 0)'; 
       }, 500); // Delay for showing the image (change as needed)
     }, 15000); // Delay for hiding the GIF (change as needed)
   };
