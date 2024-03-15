@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script type="text/javascript" src="./js/jianrong.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
+</head>
+<body>
+
+    <div class="footer-text">
+        <p>Open blind box again by sharing to friends or <a id="downloadButton" href="#">copy link</a>.</p>
+      </div>
+
+    <div class="container">
+        <img id="gif" src="./assets/images/open-bind-box3.gif" alt="GIF">
+        <img id="image" alt="Popup Image">
+      </div>
+
+    <!-- <div class="pop">
+        <a class="godownload" href="#downloadall">
+            <img class="popup-img" src="./assets/images/open-bind-box2.gif" alt="popup image">
+        </a>
+        <div class="close"></div>
+    </div> -->
+
+    <div class="mainbody">
+        <div class="">
+        </div>
+
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+
+    <!-- <script>
+        window.onload = function() {
+          var gif = document.getElementById('gif');
+          var image = document.getElementById('image');
+      
+          gif.style.display = 'block';
+      
+          setTimeout(function() {
+            gif.style.display = 'none';
+            setTimeout(function() {
+              image.style.display = 'block';
+            }, 500); // Delay between hiding GIF and showing image
+          }, 15000); // Change to 5000 for 5 seconds
+        };
+      </script> -->
+
+      <script>
+         window.onload = function() {
+            var gif = document.getElementById('gif');
+            var image = document.getElementById('image');
+            var footerText = document.querySelector('.footer-text');
+            var imageSources = [
+            './assets/images/teenpattiyes.png',
+            './assets/images/rummyyes.png',
+            './assets/images/teenpattivip.png',
+            './assets/images/rummyvip.png',
+            './assets/images/svip3patti.png',
+            './assets/images/vip3patti.png',
+            './assets/images/rummytry.png'
+            ];
+
+            gif.style.display = 'block';
+
+            setTimeout(function() {
+            gif.style.display = 'none';
+            setTimeout(function() {
+                var randomIndex = Math.floor(Math.random() * imageSources.length);
+                image.src = imageSources[randomIndex];
+                image.style.display = 'block';
+                footerText.style.display = 'block';
+            }, 500); // Delay for showing the second image (change as needed)
+            }, 12000); // Delay for hiding the first image (change as needed)
+        };
+      </script>
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?a9b8a4fa5b8e45f51da9882027b28335";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
+</body>
+</html>
