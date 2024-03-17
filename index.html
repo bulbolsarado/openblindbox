@@ -1,107 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <script type="text/javascript" src="./js/jianrong.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1, minimum-scale=1，user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <title>九宫格抽奖</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/rem.js"></script>
 </head>
+
 <body>
-
-    
-
-    <div class="container">
-        <div id="gif-container">
-          <img id="gif" src="./assets/images/open-bind-box3.gif" alt="GIF">
-        </div>
-        <a id="image-link" href="" target="_blank">
-          <img id="image" src="" alt="Popup Image">
-        </a>
-      </div>
-
-      <div class="footer-text">
-        <p>Open blind box again by sharing to friends or <a id="copy-link" href="#">copy link</a>.</p>
-      </div>
-
-      <video id="confetti-video" autoplay loop muted>
-        <source src="./assets/video/confetti.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-
-      <div id="video-container"></div>
-
-    <div class="mainbody">
-        <div class="">
+    <section class="section-wrap">
+        <div class="title">
+            <img class="toBiger" src="images/title.png" />
         </div>
 
+        <div class="lucky-wrap">
+            <div id="my-lucky"></div>
+            <div class="lucky-btn heartBeat" onclick="playGame()">
+                <!--OPEN-->
+            </div>
+        </div>
+    </section>
+
+    <!--弹窗-->
+    <div class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-content">
+                <img class="imgLogo" src="images/prize/TeenpattiYes.png" />
+                <img class="imgText" src="images/prize/TeenpattiYes1.png" />
+                <a href="javascript:;" class="btn_click">CLAIM</a>
+            </div>
+            <div class="text-bom">
+                Open BLIND BOX more, share this to your friends
+                <a href="javascript:;">COPYLINK</a>
+            </div>
+        </div>
     </div>
-
-    <script src="./assets/js/script.js"></script>
-
-      <script>
-         window.onload = function() {
-          var gif = document.getElementById('gif');
-          var gifContainer = document.getElementById('gif-container');
-          var imageLink = document.getElementById('image-link');
-          var image = document.getElementById('image');
-          var footerText = document.querySelector('.footer-text');
-          var videoContainer = document.getElementById('video-container');
-          var confettiVideo = document.getElementById('confetti-video');
-          var container = document.querySelector('.container');
-          var copyLinkButton = document.getElementById('copy-link');
-
-    // Array of image URLs and corresponding links
-    var images = [
-      { url: './assets/images/teenpattiyes.png', link: 'https://ossmm02.ersfdokm.com/TeenpattiYes-apk/TeenpattiYes-131536-channel-68686868.apk' },
-      { url: './assets/images/rummyyes.png', link: 'https://ossmm02.ersfdokm.com/RummyYesIPA/RummyYes-132920-channel-68686868.apk' },
-      { url: './assets/images/teenpattivip.png', link: 'https://ossyd06.ersfdokm.com/teenpattivipAPK/teenpatti_vip-133813-channel-68686868.apk' },
-      { url: './assets/images/rummyvip.png', link: 'https://ossyd06.ersfdokm.com/RummyVIPAPK/RummyVIP-134200-channel-68686868.apk' },
-      { url: './assets/images/svip3patti.png', link: 'https://ossyd01.ersfdokm.com/svip3pattiagAPK/india_SVIP3Patti_2-channel-68686868.apk' },
-      { url: './assets/images/vip3patti.png', link: 'https://ossmm05.ersfdokm.com/vip3pattiAPK/vip3patti68686868.apk' },
-      { url: './assets/images/rummytry.png', link: 'https://ossyd06.downwl.com/Rummytry/RummyTry-140026-channel-68686868.apk' }
-    ];
-
-    gif.style.display = 'block';
-    setTimeout(function() {
-      gifContainer.style.display = 'none';
-
-      // Randomly select an image URL and link
-      var randomIndex = Math.floor(Math.random() * images.length);
-      var randomImage = images[randomIndex];
-      image.src = randomImage.url;
-      imageLink.href = randomImage.link;
-
-      setTimeout(function() {
-        image.style.display = 'block';
-        footerText.style.display = 'block';
-        videoContainer.style.display = 'block';
-        confettiVideo.style.display = 'block';
-        container.style.backgroundColor = 'rgba(0, 0, 0, 0)'; 
-      }, 500); // Delay for showing the image (change as needed)
-    }, 15000); // Delay for hiding the GIF (change as needed).
-
-    // Function to copy the link when "Copy link" is clicked
-    copyLinkButton.addEventListener('click', function() {
-      var linkToCopy = window.location.href; // Get the current URL
-      navigator.clipboard.writeText(linkToCopy); // Copy the URL to clipboard
-      alert('Link copied to clipboard: ' + linkToCopy); // Show an alert message
-    });
-  };
-      </script>
-    
+    <script src="js/lucky-canvas@1.7.25.js"></script>
+    <script src="js/jquery-1.12.4.min.js"></script>
     <script>
-        var _hmt = _hmt || [];
-        (function () {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?a9b8a4fa5b8e45f51da9882027b28335";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
-      </script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+        const randomNumber = Math.floor(Math.random() * 7);
+        const prizeImg = [{
+                src: 'images/prize.png',
+                width: '80%',
+                top: '10%'
+            },
+            {
+                src: 'images/prize.png',
+                width: '80%',
+                top: '10%'
+            },
+            {
+                src: 'images/prize.png',
+                width: '80%',
+                top: '10%'
+            },
+            {
+                src: 'images/prize.png',
+                width: '80%',
+                top: '10%'
+            },
+            {
+                src: 'images/prize.png',
+                width: '80%',
+                top: '10%'
+            },
+            {
+                src: 'images/prize.png',
+                width: '80%',
+                top: '10%'
+            },
+            {
+                src: 'images/prize.png',
+                width: '80%',
+                top: '10%'
+            },
+            {
+                src: 'images/prize.png',
+                width: '80%',
+                top: '10%'
+            }
+        ]
+        const myLucky = new LuckyCanvas.LuckyGrid('#my-lucky', {
+            width: '5.7rem',
+            height: '5.7rem',
+            blocks: [{
+                padding: '0.1rem',
+            }],
+            prizes: [{
+                    x: 0,
+                    y: 0,
+                    imgs: [prizeImg[0]],
+                    fonts: [{
+                        text: '0',
+                        top: '25%'
+                    }]
+                },
+                {
+                    x: 1,
+                    y: 0,
+                    imgs: [prizeImg[1]],
+                    fonts: [{
+                        text: '1',
+                        top: '25%'
+                    }]
+                },
+                {
+                    x: 2,
+                    y: 0,
+                    imgs: [prizeImg[2]],
+                    fonts: [{
+                        text: '2',
+                        top: '25%'
+                    }]
+                },
+                {
+                    x: 2,
+                    y: 1,
+                    imgs: [prizeImg[3]],
+                    fonts: [{
+                        text: '3',
+                        top: '25%'
+                    }]
+                },
+                {
+                    x: 2,
+                    y: 2,
+                    imgs: [prizeImg[4]],
+                    fonts: [{
+                        text: '4',
+                        top: '25%'
+                    }]
+                },
+                {
+                    x: 1,
+                    y: 2,
+                    imgs: [prizeImg[5]],
+                    fonts: [{
+                        text: '5',
+                        top: '25%'
+                    }]
+                },
+                {
+                    x: 0,
+                    y: 2,
+                    imgs: [prizeImg[6]],
+                    f8onts: [{
+                        tex0: '6',
+                        top: '25%'
+                    }]
+                },
+                {
+                    x: 0,
+                    y: 1,
+                    imgs: [prizeImg[7]],
+                    fonts: [{
+                        text: '7',
+                        top: '25%'
+                    }]
+                },
+            ],
+            buttons: [{
+                x: 1,
+                y: 1,
+                background: 'linear-gradient(to bottom, #ffe4b8, #ffcf82)',
+                imgs: [{
+                    src: 'images/grid-btn.png',
+                    width: '100%',
+                    height: '100%',
+                }],
+            }, ],
+            defaultStyle: { // 默认样式
+                fontSize: '0px',
+                fontColor: '#ff6b61',
+                fontWeight: 600,
+                borderRadius: '8px',
+                background: 'linear-gradient(to bottom, #ffe4b8, #ffcf82)'
+            },
+            activeStyle: { // 转动选中的背景色
+                background: '#ff3c00',
+                border: '1px solid red',
+                animation: 'blink 2s infinite alternate', // 添加闪烁效果的动画
+            },
+            defaultConfig: { // 格子间隙
+                gutter: '0.2rem'
+            },
+            start: function () {
+                // 中间按钮不操作开始游戏
+                // // 开始游戏
+                // myLucky.play()
+                // // 假设接口的请求速度是1s
+                // setTimeout(() => {
+                //     // 停止游戏
+                //     myLucky.stop(4)
+                // }, 1000)
+            },
+            end: function (prize) { // 游戏结束触发 end 回调
+                openImg(randomNumber);
+                // prizeImg[4].src = 'images/prize-btn.png';
+            }
+        })
 
+        console.log(randomNumber)
+
+
+
+        function playGame() {
+            // 按钮更换图片
+            // $('.lucky-btn').addClass('active');
+            // 开始游戏
+            myLucky.play()
+            // 使用定时器模拟接口
+            setTimeout(() => {
+                // 结束游戏
+                myLucky.stop(randomNumber)
+            }, 3000)
+        }
+
+        // 自适应操作
+        function judgeClient() {
+            let client = '';
+            if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { //判断iPhone|iPad|iPod|iOS
+                client = 'iOS';
+            } else if (/(Android)/i.test(navigator.userAgent)) { //判断Android
+                client = 'Android';
+            } else {
+                client = 'PC';
+            }
+            return client;
+        }
+
+        function myLuckyPcConfig() {
+            myLucky.width = '380px'
+            myLucky.height = '320px'
+            myLucky.defaultConfig.gutter = '10px'
+        }
+
+        function myLuckyH5Config() {
+            myLucky.width = '5.7rem'
+            myLucky.height = '5.7rem'
+            myLucky.defaultConfig.gutter = '0.2rem'
+        }
+        if (judgeClient() === 'PC') {
+            myLuckyPcConfig()
+        } else {
+            myLuckyH5Config()
+        }
+        $(window).resize(function () {
+            if ($(document.body).width() > 500) {
+                myLuckyPcConfig()
+            } else {
+                myLuckyH5Config()
+            }
+        })
+
+
+        function openImg(randomNumber) {
+            var img=$('.imgLogo'),
+            imgText=$('.imgText');
+            switch (randomNumber) {
+                case 0://TeenpattiYes
+                img.attr('src','images/prize/TeenpattiYes.png');
+                imgText.attr('src','images/prize/TeenpattiYes1.png');
+                    break;
+                case 1://RummyYes
+                img.attr('src','images/prize/2.png');
+                imgText.attr('src','images/prize/2-2.png');
+                    break;
+                case 2: //svip3pattiagAPK
+                img.attr('src','images/prize/3.png');
+                imgText.attr('src','images/prize/3-3.png');
+                    break;
+                case 3://teenpatti_vip
+
+                img.attr('src','images/prize/4.png');
+                imgText.attr('src','images/prize/4-4.png');
+                    break;
+                case 4://vip3patti
+                img.attr('src','images/prize/5.png');
+                imgText.attr('src','images/prize/5-5.png');
+                    break;
+                case 5://RummyTry
+                img.attr('src','images/prize/6.png');
+                imgText.attr('src','images/prize/6-6.png');
+                    break;
+                case 6://RummyVIP
+                img.attr('src','images/prize/1.png');
+                imgText.attr('src','images/prize/1-1.png');
+                    break;
+            }
+
+            $('.modal-overlay').fadeIn(500);
+
+        }
+
+        $('.btn_click').on('click', function () {
+
+            switch (randomNumber) {
+                case 0://TeenpattiYes
+                    window.open('https://ossmm02.ersfdokm.com/TeenpattiYes-apk/TeenpattiYes-131536-channel-68686868.apk');
+                    break;
+                case 1://RummyYes
+                window.open('https://ossmm02.ersfdokm.com/RummyYesIPA/RummyYes-132920-channel-68686868.apk');
+                    break;
+                case 2: //svip3pattiagAPK
+                window.open('https://ossyd01.ersfdokm.com/svip3pattiagAPK/india_SVIP3Patti_2-channel-68686868.apk');
+                    break;
+                case 3://teenpatti_vip
+                window.open('https://ossyd06.ersfdokm.com/teenpattivipAPK/teenpatti_vip-133813-channel-68686868.apk');
+                    break;
+                case 4://vip3patti
+                window.open('https://ossmm05.ersfdokm.com/vip3pattiAPK/vip3patti68686868.apk');
+                    break;
+                case 5://RummyTry
+                window.open('https://ossyd06.downwl.com/Rummytry/RummyTry-140026-channel-68686868.apk');
+                    break;
+                case 6://RummyVIP
+                window.open('https://ossyd06.ersfdokm.com/RummyVIPAPK/RummyVIP-134200-channel-68686868.apk');
+                    break;
+            }
+
+        });
+    </script>
 </body>
+
 </html>

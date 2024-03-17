@@ -1,0 +1,154 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.mainbody {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    background: url(../images/image2.png) center/cover no-repeat;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+}
+
+.pop {
+    position: absolute;
+    right: 0;
+    z-index: 20;
+    left: 0;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    max-width: 750px;
+}
+
+.pop a img {
+    margin-left: -14px;
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 750px;
+    position: fixed;
+    z-index: 1002;
+    height: 100vh;
+    right: 0;
+    left: 0;
+    top: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0); /* Initial background color with 0 opacity */
+    transition: background-color 0.5s ease; /* Smooth transition effect */
+  }
+
+  #gif-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* 80% black background */
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #gif {
+    display: none;
+    width: 100%;
+    height: auto;
+  }
+
+  #image {
+    display: none;
+    width: 80%;
+    /* max-width: 750px; */
+    margin: 0 auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    animation: zoomIn 1s ease forwards;
+  }
+
+  @keyframes zoomIn {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .footer-text {
+    display: none;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1010;
+    bottom: 12%;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .footer-text a {
+    color: #2196f3;
+    text-decoration: underline;
+  }
+
+  #confetti-video {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 999;
+    background-color: transparent; /* Remove black background */
+    pointer-events: none; /* Hide the video controls */
+    opacity: 0.5;
+  }
+
+  #video-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent black overlay */
+    pointer-events: none; /* Allow clicks to pass through */
+  }
